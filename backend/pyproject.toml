@@ -6,10 +6,11 @@ readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
     "alembic>=1.18.4",
+    "arq>=0.28.0",
     "asyncpg>=0.31.0",
     "fastapi>=0.137.1",
     "fastmcp>=3.4.2",
-    "passlib[bcrypt]>=1.7.4",
+    "pwdlib[argon2]>=0.3.0",
     "pydantic>=2.13.4",
     "pydantic-settings>=2.14.1",
     "pyjwt>=2.13.0",
