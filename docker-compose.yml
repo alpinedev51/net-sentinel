@@ -85,4 +85,4 @@ services:
 
 volumes:
   postgres_data:
-  resid_data:
+  redis_data:
