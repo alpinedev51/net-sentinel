@@ -1,0 +1,49 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# NEVER commit your environment variables to version control
+.env
+.env.*
+
+# Virtual environments (uv uses .venv by default)
+.venv/
+venv/
+env/
+ENV/
+
+# ==========================================
+# Ignore your local SQLite database files so you don't commit test data
+*.db
+*.sqlite
+*.sqlite3
+net_sentinel.db
+
+*.log
+output.txt
+
+# macOS (from your tracebacks, you are on a Mac)
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows (just in case you collaborate with Windows users)
+Thumbs.db
+ehthumbs.db
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
