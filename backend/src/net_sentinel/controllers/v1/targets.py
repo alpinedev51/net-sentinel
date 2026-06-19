@@ -1,5 +1,5 @@
 # Targets router
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, status
 
 from net_sentinel.adapters.db import async_session_maker
 from net_sentinel.adapters.uow import SQLAlchemyUnitOfWork
@@ -22,7 +22,7 @@ def get_target_service(uow: UnitOfWorkPort = Depends(get_uow)) -> TargetService:
     return TargetService(uow=uow)
 
 
-@router.post("/", response_model=TargetResponse)
+@router.post("/", response_model=TargetResponse, status_code=status.HTTP_201_CREATED)
 async def create_target(
     payload: TargetCreate, service: TargetService = Depends(get_target_service)
 ):

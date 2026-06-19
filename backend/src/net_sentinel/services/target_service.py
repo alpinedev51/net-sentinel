@@ -10,4 +10,5 @@ class TargetService:
     async def register_new_target(self, target_in: TargetCreate) -> TargetResponse:
         async with self.uow:
             new_target = await self.uow.target_repo.create(target_in)
+            await self.uow.commit()
             return new_target
