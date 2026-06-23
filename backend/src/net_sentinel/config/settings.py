@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     @model_validator(mode="after")
     def set_default(self) -> "Settings":
         if not self.DATABASE_URL:
-            self.DATABASE_URL = "sqlite+aiosqlite:///:memory:"
+            self.DATABASE_URL = "postgresql+asyncpg://postgres:postgres@localhost:5432/net_sentinel"
         return self
 
 

@@ -6,6 +6,7 @@ from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import async_engine_from_config
 
 import net_sentinel.models.target
+import net_sentinel.models.audit
 from alembic import context
 from net_sentinel.config.settings import settings
 from net_sentinel.models.base import Base
