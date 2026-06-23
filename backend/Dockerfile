@@ -18,6 +18,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 
 # Copy package source code and sync to install the project
 COPY src ./src
+COPY README.md ./
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-dev
 
