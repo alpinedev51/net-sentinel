@@ -1,11 +1,10 @@
 from typing import List
 
-from sqlalchemy import select
-from sqlalchemy.ext.asyncio import AsyncSession
-
 from net_sentinel.models.target import Target as TargetORM
 from net_sentinel.ports.target_repository import TargetRepositoryPort
 from net_sentinel.schemas.target import TargetCreate, TargetResponse
+from sqlalchemy import select
+from sqlalchemy.ext.asyncio import AsyncSession
 
 
 class SQLAlchemyTargetRepository(TargetRepositoryPort):

@@ -9,7 +9,6 @@ from sqlalchemy import (
     String,
     Text,
     func,
-    null,
 )
 from sqlalchemy.orm import relationship
 
@@ -36,9 +35,14 @@ class ScanJob(Base):
     __tablename__ = "scanjobs"
 
     id = Column(Integer, primary_key=True, index=True)
-    audit_id = Column(Integer, ForeignKey("audits.id", ondelete="CASCADE"), nullable=False, index=True)
+    audit_id = Column(
+        Integer, ForeignKey("audits.id", ondelete="CASCADE"), nullable=False, index=True
+    )
     target_id = Column(
-        Integer, ForeignKey("targets.id", ondelete="CASCADE"), nullable=False, index=True
+        Integer,
+        ForeignKey("targets.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
     )
     tool_name = Column(String(50), nullable=False)
     status = Column(String(20), default="pending", index=True)

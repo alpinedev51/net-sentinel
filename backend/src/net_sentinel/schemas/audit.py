@@ -2,6 +2,7 @@ from datetime import datetime
 
 from pydantic import BaseModel, ConfigDict, Field
 
+
 class AuditBase(BaseModel):
     """Base fields shared across multiple Audit schemas."""
 
@@ -21,5 +22,3 @@ class AuditResponse(AuditBase):
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
-
-

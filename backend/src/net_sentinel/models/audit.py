@@ -1,6 +1,8 @@
-from sqlalchemy import ForeignKey, Column, Integer, String, DateTime, Text, func
+from sqlalchemy import Column, DateTime, Integer, String, Text, func
 from sqlalchemy.orm import relationship
+
 from net_sentinel.models.base import Base
+
 
 class Audit(Base):
     __tablename__ = "audits"
@@ -14,4 +16,6 @@ class Audit(Base):
     started_at = Column(DateTime(timezone=True), nullable=True)
     completed_at = Column(DateTime(timezone=True), nullable=True)
 
-    scan_jobs = relationship("ScanJob", back_populates="audit", cascade="all, delete-orphan")
+    scan_jobs = relationship(
+        "ScanJob", back_populates="audit", cascade="all, delete-orphan"
+    )
