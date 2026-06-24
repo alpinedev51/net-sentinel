@@ -15,6 +15,7 @@ class SQLAlchemyUnitOfWork(UnitOfWorkPort):
     async def __aenter__(self):
         self.session = self.session_factory()
         self.target_repo = SQLAlchemyTargetRepository(self.session)
+        self.audit_repo = SQLAlchemyAuditRepository(self.session)  # <-- The Fix!
         return self
 
     async def __aexit__(self, exc_type, exc_val, exc_tb):

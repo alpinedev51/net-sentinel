@@ -27,7 +27,7 @@ class SQLAlchemyTargetRepository(TargetRepositoryPort):
         result = await self.session.execute(
             select(TargetORM).where(TargetORM.is_active == True)
         )
-        return list(result.scalars().all())
+        return [TargetResponse.model_validate(db_obj) for db_obj in result.scalars().all()]
 
     async def create(self, target_data: TargetCreate) -> TargetResponse:
         new_target = TargetORM(**target_data.model_dump())

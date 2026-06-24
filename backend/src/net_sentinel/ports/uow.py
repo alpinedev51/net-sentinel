@@ -1,14 +1,11 @@
 from typing import Protocol
 
+from net_sentinel.ports.audit_repository import AuditRepositoryPort
 from net_sentinel.ports.target_repository import TargetRepositoryPort
 
 
 class UnitOfWorkPort(Protocol):
-    """
-    The Port: The application knows it can start a transaction,
-    access repositories, commit, and rollback. It doesn't know HOW.
-    """
-
+    audit_repo: AuditRepositoryPort
     target_repo: TargetRepositoryPort
 
     async def __aenter__(self) -> "UnitOfWorkPort": ...

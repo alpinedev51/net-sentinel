@@ -32,6 +32,7 @@ class TargetResponse(TargetBase):
 class ScanJobCreate(BaseModel):
     """What the client sends to request a new scan."""
 
+    audit_id: int
     target_id: int
     tool_name: str = Field(..., max_length=50, description="e.g., nmap, ping")
 
@@ -40,6 +41,7 @@ class ScanJobResponse(BaseModel):
     """What the API returns when querying a scan's status."""
 
     id: int
+    audit_id: int
     target_id: int
     tool_name: str
     status: str
