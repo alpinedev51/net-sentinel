@@ -1,6 +1,7 @@
 from sqlalchemy.ext.asyncio import async_sessionmaker
 
 from net_sentinel.adapters.repositories.target import SQLAlchemyTargetRepository
+from net_sentinel.adapters.repositories.audit import SQLAlchemyAuditRepository
 from net_sentinel.ports.uow import UnitOfWorkPort
 
 
@@ -15,7 +16,7 @@ class SQLAlchemyUnitOfWork(UnitOfWorkPort):
     async def __aenter__(self):
         self.session = self.session_factory()
         self.target_repo = SQLAlchemyTargetRepository(self.session)
-        self.audit_repo = SQLAlchemyAuditRepository(self.session)  # <-- The Fix!
+        self.audit_repo = SQLAlchemyAuditRepository(self.session)
         return self
 
     async def __aexit__(self, exc_type, exc_val, exc_tb):

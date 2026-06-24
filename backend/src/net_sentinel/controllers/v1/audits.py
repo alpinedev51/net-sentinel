@@ -1,7 +1,6 @@
 # Audits router
-from typing import List
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, status
 
 from net_sentinel.adapters.db import async_session_maker
 from net_sentinel.adapters.uow import SQLAlchemyUnitOfWork
